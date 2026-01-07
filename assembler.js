@@ -16,7 +16,7 @@ function assembleASM(source) {
         const parts = line.split(/[\s,]+/);
         const instr = parts[0]?.toLowerCase();
 
-        if(!OPCODES[instr]) {
+        if(!(instr in OPCODES)) {
             errors.push(`Line ${idx+1}: Unknown instruction "${instr}"`);
         }
 
